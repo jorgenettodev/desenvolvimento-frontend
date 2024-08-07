@@ -4,6 +4,10 @@ const porta = 6001;
 
 // cria banco de dados fake
 
+/**
+ * An array of product objects, each with a name, value, description, and image URL.
+ * This data is used to provide a fake database of products for the application.
+ */
 let produtos = [
     {
         nome: "Bolu de murangu",
