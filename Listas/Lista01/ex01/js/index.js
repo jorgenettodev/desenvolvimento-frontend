@@ -32,6 +32,8 @@ let buscarJogo = (jogoBuscado) => {
             return jogo;
         } 
     }
+
+    // se nao achar o jogo buscado, retorna um game padrão.
     return jogos[0];
 }
 
