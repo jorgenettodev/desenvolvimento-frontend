@@ -1,13 +1,12 @@
+// passo 1 cria servidor express
+
 const express = require('express');
 const app = express();
 const porta = 6001;
 
-// cria banco de dados fake
+// passo 2  cria banco de dados fake
 
-/**
- * An array of product objects, each with a name, value, description, and image URL.
- * This data is used to provide a fake database of products for the application.
- */
+
 let produtos = [
     {
         nome: "Bolu de murangu",
@@ -29,6 +28,7 @@ let produtos = [
     }
 ]
 
+// passo 3 - cria rotas
 
 app.get('/', (requisicao, resposta) => {
     try {
@@ -53,7 +53,7 @@ app.get('/jogos', (req, res) => {
     return res.json("Deu certo").status(200);
 });
 
-
+// passo 4 - starta o server
 
 app.listen(porta, () => {
     console.log(`http://localhost:${porta}`)
