@@ -6,7 +6,7 @@ app.use(express.json());
 
 // crie uma database e retorne ele na rota "/";
 
-// let database = [];
+let database = [];
 
 app.get("/",(requisicao, resposta) => {
     try {
@@ -16,7 +16,24 @@ app.get("/",(requisicao, resposta) => {
     }
 })
 
+// crie uma rota que busca um produto por id. Input: ?id='' || processing: use array.find para percorrer a database e retornar o produto com o id buscado
+app.get("/buscar-produto-por-id", (req, res) => {
+    try {
 
+        // loga o id buscado
+        let produtoId = req.query.id;
+        console.log(produtoId);
+
+        // busca o produto e salva numa variavel
+        let produto = database.find(produto => produto.id == produtoId);
+        console.log(produto.nome);
+
+        
+        return res.status(200).json({mensagem: produto});
+    } catch (error) {
+        return res.status(500).json({mensagem: "deu ruim"});
+    }
+})
 
 
 // ENDPOINT
@@ -26,7 +43,9 @@ app.post("/adicionar-produto", (req, res) => {
     try {
         let produto = {
             nome: req.body.nome,
-            valor: req.body.valor
+            valor: req.body.valor,
+            descricao: req.body.descricao,
+            id: req.body.id
         }
         database.push(produto);
 
