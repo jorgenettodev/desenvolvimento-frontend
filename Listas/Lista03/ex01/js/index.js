@@ -43,7 +43,11 @@ app.post("/cadastrar-usuario", (req, res) => {
 
 
 app.get("/buscar-todos-usuarios", (req, res) => {
-    return res.status(200).json(database);
+    try {
+        return res.status(200).json(database)
+    } catch (error) {
+        return res.status(500).json({mensagem: "Erro ao buscar usuarios."})
+    };
 });
 
 
@@ -61,12 +65,12 @@ app.post("/login", (req, res) => {
     let emailEncontrado = database.find(usuarioNaLista => inputLogin.email == usuarioNaLista.email);
 
     if (!emailEncontrado) {
-        return res.send(msgErro);
+        return res.status(500).send(msgErro);
     }
 
     // se a senha não for a mesma do emailEncontrado, retorna um erro
     if (!(emailEncontrado.senha == inputLogin.senha)) {
-        return res.send(msgErro);
+        return res.status(500).send(msgErro);
     }
 
     return res.status(200).send(msgSucesso);
