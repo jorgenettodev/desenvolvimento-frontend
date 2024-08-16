@@ -6,12 +6,7 @@ const port = 5010;
 app.use(express.json());
 
 // cria database vazia;
-let database = [{
-    "email": "bruno@email.com",
-    "senha": "1234a",
-    "confirmacaoSenha": "1234a",
-    "nome": "Brunno Vasco"
-}];
+let database = [];
 
 // cadastra novos usuarios
     // verificações: email já criado, senhas diferentes.
@@ -29,12 +24,12 @@ app.post("/cadastrar-usuario", (req, res) => {
 
         // se o email já existe na db, retorna.
         if (usuarioJaExiste) {
-            return res.send("Este email já está sendo utilizado.");
+            return res.status(400).send("Este email já está sendo utilizado.");
         }
 
         // se as senhas não forem iguais, retorna erro.
         if (!(usuario.senha === usuario.confirmacaoSenha)) {
-            return res.send("As senhas devem ser iguais.")
+            return res.status(400).send("As senhas devem ser iguais.")
         }
 
         // adiciona no database
