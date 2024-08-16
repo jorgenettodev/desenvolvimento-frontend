@@ -24,7 +24,8 @@ app.post("/cadastrar-usuario", (req, res) => {
             confirmacaoSenha: req.body.confirmacaoSenha
         }
 
-        let usuarioJaExiste = database.find(usuarioProcurado => usuarioProcurado.email == usuario.email);
+        // let usuarioJaExiste = database.find(usuarioProcurado => usuarioProcurado.email == usuario.email);
+        let usuarioJaExiste = database.find(usuarioProcurado => usuarioProcurado.email === usuario.email);
 
         // se o email já existe na db, retorna.
         if (usuarioJaExiste) {
@@ -32,7 +33,7 @@ app.post("/cadastrar-usuario", (req, res) => {
         }
 
         // se as senhas não forem iguais, retorna erro.
-        if (!(usuario.senha == usuario.confirmacaoSenha)) {
+        if (!(usuario.senha === usuario.confirmacaoSenha)) {
             return res.send("As senhas devem ser iguais.")
         }
 
