@@ -6,7 +6,6 @@ const app = express()
 const port = 8050;
 
 // adiciona a string de conexao com o banco de dados
-const connectionString = "mongodb+srv://jorgenetto96:8ZpcDeDkzMd63bXp@bancodedados.2g3xn.mongodb.net/";
 
 // importa o usuario
 const Usuario = require("./models/usuario");
