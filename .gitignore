@@ -131,3 +131,6 @@ dist
 
 # outros
 senha.txt
+
+/javascript
+*.json
