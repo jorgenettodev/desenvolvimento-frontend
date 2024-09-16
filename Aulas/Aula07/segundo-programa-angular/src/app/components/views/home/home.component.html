@@ -1,0 +1,23 @@
+<!-- <app-navbar></app-navbar> -->
+<h1>Tela Home</h1>
+<hr>
+
+
+@for (produto of produtos; track $index) {
+  @if (produto.nome === "Bolu de murangu") {
+    <p>Bolo de murangu: ESGOTADO!!!!!!!</p>
+  } @else {
+    <li>
+      <p>{{produto.nome}}</p>
+      <p>{{produto.valor}}</p>
+      <br>
+    </li>
+  }
+}
+
+<hr>
+
+<span *ngFor="let produto of produtos; let i = index">
+  <p>{{ produto.nome }}</p>
+  <p>{{ produto.valor }}</p>
+</span>
