@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './text-interpolation.component.css'
 })
 export class TextInterpolationComponent {
+  public nome : string = "Scooby-Doo";
+  public idade : number = 27;
 
 }

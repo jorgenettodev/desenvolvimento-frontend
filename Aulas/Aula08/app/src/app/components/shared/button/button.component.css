@@ -1,0 +1,13 @@
+button {
+  color: #fff;
+  padding: 1rem;
+  border-radius: .5rem;
+}
+
+.azul {
+  background: blue;
+}
+
+.vermelho {
+  background: red;
+}

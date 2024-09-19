@@ -1,0 +1,19 @@
+.menu {
+  display: flex;
+  gap: 1rem;
+  font-size: 2rem;
+  padding: 1rem;
+  justify-content: center;
+  width: 100%;
+  background-color: #1e1e1e;
+  /* border-radius: 1rem; */
+  /* margin: 10px; */
+}
+
+.menu a {
+  color: crimson;
+}
+
+.menu a:hover {
+  background-color: aquamarine;
+}
