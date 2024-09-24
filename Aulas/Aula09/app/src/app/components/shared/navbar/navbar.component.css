@@ -1,0 +1,13 @@
+mat-toolbar {
+  gap: 1rem;
+}
+
+mat-toolbar a {
+  color: #fff;
+  transition: .1s ease-in-out;
+}
+
+mat-toolbar a:hover {
+  font-weight: bold;
+  font-size: 25px;
+}
